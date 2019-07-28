@@ -13,7 +13,12 @@ namespace TheCodeCamp.Data
         public CampProfile()
         {
             //Create a map from camp to camp model
-            CreateMap<Camp, CampModel>();
+            CreateMap<Camp, CampModel>()
+                /*
+                 * For member Venue(not LocationVenue) in CampModel, we want the value to be
+                 * mapped to the venue name s
+                 */
+                .ForMember(m => m.Venue, opt => opt.MapFrom(d => d.Location.VenueName));
         }
     }
 }
