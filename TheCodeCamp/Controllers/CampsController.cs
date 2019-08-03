@@ -117,7 +117,7 @@ namespace TheCodeCamp.Controllers
 
                 if (await _repository.SaveChangesAsync())
                 {
-                    return Ok(_mapper.Map(camp, model));
+                    return Ok(_mapper.Map<CampModel>(camp));
                 }
                 else
                 {
