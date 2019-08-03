@@ -18,7 +18,9 @@ namespace TheCodeCamp.Data
                  * For member Venue(not LocationVenue) in CampModel, we want the value to be
                  * mapped to the venue name s
                  */
-                .ForMember(m => m.Venue, opt => opt.MapFrom(d => d.Location.VenueName));
+                .ForMember(m => m.Venue, opt => opt.MapFrom(d => d.Location.VenueName))
+                //Allow the mapping from CampModel to Camp
+                .ReverseMap();
         }
     }
 }
